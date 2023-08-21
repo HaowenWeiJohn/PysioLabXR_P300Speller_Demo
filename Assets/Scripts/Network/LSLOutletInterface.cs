@@ -2,6 +2,7 @@ using LSL;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class LSLOutletInterface : MonoBehaviour
 {
@@ -32,6 +33,15 @@ public class LSLOutletInterface : MonoBehaviour
             );
 
         streamOutlet = new StreamOutlet(streamInfo);
+    }
+
+
+    public float[] createEventMarkerArrayFloat()
+    {
+        int channel_count = streamOutlet.info().channel_count();
+        float[] zerosArray = new float[channel_count];
+        return zerosArray;
+        //return new float[3] { };
     }
 
 }

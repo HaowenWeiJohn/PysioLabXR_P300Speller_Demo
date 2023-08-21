@@ -8,7 +8,7 @@ public class CharactorController : MonoBehaviour
 
     //public List<CharactorController> row_1 = new List<CharactorController>();
     //public CharactorController[] row_1 = new CharactorController[6];
-
+    public Presets.Character character;
 
     void Start()
     {
@@ -20,6 +20,8 @@ public class CharactorController : MonoBehaviour
     {
         
     }
+
+    
 
     
 

@@ -24,15 +24,20 @@ public class EventMarkerLSLOutletController : LSLOutletInterface
 
     public void sendStateOnEnterMarker(Presets.ExperimentState currentExperimentState)
     {
-        float[] currentStateMarker = new float[] { (float)currentExperimentState, 0, 0, 0, 0};
-        streamOutlet.push_sample(currentStateMarker);
+
+        //float[] currentStateMarker = new float[] { (float)currentExperimentState, 0, 0, 0, 0 , 0};
+        //streamOutlet.push_sample(currentStateMarker);
+        float[] eventMarkerArray = createEventMarkerArrayFloat();
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.StateEnterExitMarker] = (float)currentExperimentState;
+        streamOutlet.push_sample(eventMarkerArray);
     }
 
 
     public void sendStateOnExitMarker(Presets.ExperimentState currentExperimentState)
     {
-        float[] currentStateMarker = new float[] {-(float)currentExperimentState, 0, 0, 0, 0 };
-        streamOutlet.push_sample(currentStateMarker);
+        float[] eventMarkerArray = createEventMarkerArrayFloat();
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.StateEnterExitMarker] = (float)currentExperimentState * -1; // revert the value to indicate exit
+        streamOutlet.push_sample(eventMarkerArray);
     }
 
     

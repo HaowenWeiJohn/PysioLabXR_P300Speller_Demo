@@ -9,11 +9,20 @@ public static class Presets
     public static string EventMarkerLSLOutletStreamName = "PhysioLabXR_P300SpellerDemo_EventMarker";
     public static string EventMarkerLSLOutletStreamType = "EventMarker";
     public static string EventMarkerLSLOutletStreamID = "1";
-    public static int EventMarkerChannelNum = 5; // block marker index 0
+    public static int EventMarkerChannelNum = 6; // block marker index 0
     public static float EventMarkerNominalSamplingRate = 1;
 
+
     // 0: State Enter Exit Marker 1: Flashing Block Enter Exit Marker 2: Flashing Row Index, 3. Flashing Column Index 4. The flashing Row/Column Contains Target Char
-    
+    public enum EventMarkerChannelInfo
+    {
+        StateEnterExitMarker = 0,
+        FlashBlockStartEndMarker = 1,
+        FlashingMarker = 2,
+        ColIndexMarker = 3,
+        RowIndexMarker = 4,
+        FlashingTarget = 5
+    }
 
     public enum ExperimentState
     {
@@ -50,7 +59,7 @@ public static class Presets
     public static KeyCode InterruptKey = KeyCode.I;
     public static KeyCode FullScreenKey = KeyCode.F;
 
-    public enum CharValue
+    public enum Character
     {
         A = 0,
         B = 1,
@@ -89,5 +98,8 @@ public static class Presets
         Eight = 34,
         Nine = 35
     }
+
+
+
 
 }
