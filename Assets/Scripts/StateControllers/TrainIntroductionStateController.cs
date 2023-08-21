@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrainIntroductionStateController : MonoBehaviour
+public class TrainIntroductionStateController : StateController
 {
     // Start is called before the first frame update
     
@@ -16,7 +16,7 @@ public class TrainIntroductionStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        base.Update();
     }
 
 

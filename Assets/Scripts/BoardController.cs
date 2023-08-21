@@ -6,8 +6,9 @@ public class BoardController : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    
 
+    //public GameObject[,] gameBoard = new GameObject[10,10];
+    //public List<GameObject> row_one = new List<GameObject>();
 
     void Start()
     {

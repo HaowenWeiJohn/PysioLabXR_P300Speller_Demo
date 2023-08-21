@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestIntroductionStateController : MonoBehaviour
+public class TestIntroductionStateController : StateController
 {
     // Start is called before the first frame update
     void Start()
@@ -13,6 +13,6 @@ public class TestIntroductionStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        base.Update();
     }
 }

@@ -1,24 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public List<Preset.GameState> gameStates = new List<Preset.GameState>();
-    public int currentGameStaateIndex = 0;
-    public static KeyCode NextStateKey = KeyCode.N;
-    public static KeyCode InterruptKey = KeyCode.I;
+    public List<Presets.ExperimentState> experimentState = new List<Presets.ExperimentState>();
+    public int currentExperimentStateIndex = 0;
 
 
+    //    public static KeyCode NextStateKey = KeyCode.Space;
+    //public static KeyCode InterruptKey = KeyCode.Escape;
 
     void Start()
     {
-        gameStates = Preset.GameProcedure;
-        currentGameStaateIndex = 0;
+        experimentState = Presets.ExperimentProcedure;
+        currentExperimentStateIndex = 0;
 
-        // set current Game State
 
     }
 
