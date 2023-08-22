@@ -17,6 +17,9 @@ public static class Presets
 
     public static Color CharTrainHintColor = new Color(1, 0, 1, 1);
 
+    // flash settings
+    public static float BoardEnableWaitTime = 2.0f;
+    public static float TrainTargetCharHintDuration = 2.0f;
 
     // 0: State Enter Exit Marker 1: Flashing Block Enter Exit Marker 2: Flashing Row Index, 3. Flashing Column Index 4. The flashing Row/Column Contains Target Char
     public enum EventMarkerChannelInfo
@@ -188,7 +191,7 @@ public static class Presets
 };
 
 
-    public static float BoardEnableWaitTime = 2.0f;
+
 
 
 }

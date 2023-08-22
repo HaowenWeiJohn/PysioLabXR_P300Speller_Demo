@@ -47,9 +47,9 @@ public class CharactorController : MonoBehaviour
         spriteRenderer.color = Presets.CharOnColor;
     }
 
-    public void setTrainHintColor(Color color)
+    public void setTrainHintColor()
     {
-
+        spriteRenderer.color = Presets.CharTrainHintColor;
     }
 
     public void getSpriteRenderer()

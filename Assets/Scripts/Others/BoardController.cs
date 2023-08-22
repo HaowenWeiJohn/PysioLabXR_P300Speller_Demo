@@ -129,12 +129,22 @@ public class BoardController : MonoBehaviour
 
             char targetChar = trainCharsArray[i];
             int targetCharIndex = Presets.P300SpellerCharInexDictionary[targetChar];
+            CharactorController targetCharController = allChars[targetCharIndex];
             Debug.Log("Target Char: " +targetChar);
             Debug.Log("Target Char Index: " + targetCharIndex);
+            targetCharController.setTrainHintColor();
+    // turn the hint on for n seconds
 
-        }
+
+
+
+}
+
+
 
     }
+
+    
 
     
 }
