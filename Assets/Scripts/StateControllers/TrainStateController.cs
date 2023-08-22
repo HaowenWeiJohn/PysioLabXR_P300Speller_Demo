@@ -8,8 +8,14 @@ public class TrainStateController : StateController
 
     [Header("Board Controller")]
     public BoardController boardController;
+
+
+    public IEnumerator TrainStateBoardCoroutine;
+
     void Start()
     {
+        TrainStateBoardCoroutine = boardController.TrainStateBoardCoroutine();
+        StartCoroutine(TrainStateBoardCoroutine);
 
     }
 

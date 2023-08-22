@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     public char[] trainCharsArray;
     public int repeatTimes;
     public float flashInterval;
+    public float flashDuration;
     
 
 

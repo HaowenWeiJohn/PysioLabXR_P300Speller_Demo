@@ -14,8 +14,9 @@ public class TrainIntroductionStateController : StateController
     public P300SpellerSettingsInputFeildController trainCharsInputFeildController;
     public P300SpellerSettingsInputFeildController repeatTimesInputFeildController;
     public P300SpellerSettingsInputFeildController flashIntervalInputFeildController;
+    public P300SpellerSettingsInputFeildController flashDurationInputFeildController;
 
-    
+
 
     //public TMP_InputField TrainCharsInputFeild;
     //public TMP_InputField RepeatTimesInputFeild;
@@ -49,7 +50,7 @@ public class TrainIntroductionStateController : StateController
         //    returnSettingsToGameManager();
         //}
 
-        if (trainCharsValid() && repeatTimeValid() && falshIntervalValid())
+        if (trainCharsValid() && repeatTimeValid() && falshIntervalValid() && falshDurationValid())
         {
             return true;
         }
@@ -119,7 +120,22 @@ public class TrainIntroductionStateController : StateController
 
     }
 
+    public bool falshDurationValid()
+    {
+        string inputString = flashDurationInputFeildController.getInput();
+        float outputValue = 0;
+        bool valid = float.TryParse(inputString, out outputValue);
+        if (valid)
+        {
+            gameManager.flashDuration = outputValue;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
 
+    }
 
 
 }
