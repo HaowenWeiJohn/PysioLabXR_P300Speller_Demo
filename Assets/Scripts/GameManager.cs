@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -25,11 +26,20 @@ public class GameManager : MonoBehaviour
     public TestStateController testStateController;
     public EndStateController endStateController;
 
+    public EventMarkerLSLOutletController eventMarkerLSLOutletController;
+
+
+    [Header("Settings")]
+    public char[] trainCharsArray;
+    public int repeatTimes;
+    public float flashInterval;
+    
 
 
 
     void Start()
     {
+
         experimentStates = Presets.ExperimentProcedure;
         stateSelector(experimentStates[experimentStateIndex]);
         currentState.enterState();
@@ -84,8 +94,6 @@ public class GameManager : MonoBehaviour
 
         }
     }
-
-
 
 
 }

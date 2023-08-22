@@ -5,9 +5,12 @@ using UnityEngine;
 public class TrainStateController : StateController
 {
     // Start is called before the first frame update
+
+    [Header("Board Controller")]
+    public BoardController boardController;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -15,4 +18,7 @@ public class TrainStateController : StateController
     {
         base.Update();
     }
+
+
+
 }

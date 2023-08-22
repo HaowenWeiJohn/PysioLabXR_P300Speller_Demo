@@ -27,12 +27,31 @@ public class BoardController : MonoBehaviour
     public CharactorController[] col_5 = new CharactorController[6];
 
 
-    
+    [Header("All Chars")]
+    public CharactorController[] allChars = new CharactorController[36];
+
+    public List<CharactorController[]> flashItems = new List<CharactorController[]>();
 
     void Start()
     {
-        
+        flashItems.Add(row_0);
+        flashItems.Add(row_1);
+        flashItems.Add(row_2);
+        flashItems.Add(row_3);
+        flashItems.Add(row_4);
+        flashItems.Add(row_5);
+
+        flashItems.Add(col_0);
+        flashItems.Add(col_1);
+        flashItems.Add(col_2);
+        flashItems.Add(col_3);
+        flashItems.Add(col_4);
+        flashItems.Add(col_5);
+        // 12 flash in total
     }
+
+
+
 
     // Update is called once per frame
     void Update()
@@ -40,10 +59,35 @@ public class BoardController : MonoBehaviour
         
     }
 
-    
+    void setAllCharsToCharOffColor()
+    {
+        foreach (CharactorController charactorController in allChars)
+        {
+            charactorController.setOffColor();
+        }
+    }
 
 
 
+    private void OnEnable()
+    {
+        allCharsGetSpriteRenderer();
+        setAllCharsToCharOffColor();
+    }
+
+    void allCharsGetSpriteRenderer()
+    {
+        foreach (CharactorController charactorController in allChars)
+        {
+            charactorController.getSpriteRenderer();
+        }
+    }
+
+
+    public void OnBeforeTransformParentChanged()
+    {
+        
+    }
 
 
 }

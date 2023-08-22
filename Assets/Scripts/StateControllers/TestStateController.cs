@@ -5,6 +5,10 @@ using UnityEngine;
 public class TestStateController : StateController
 {
     // Start is called before the first frame update
+
+    [Header("Board Controller")]
+    public BoardController boardController;
+
     void Start()
     {
         
@@ -15,4 +19,7 @@ public class TestStateController : StateController
     {
         base.Update();
     }
+
+
+
 }

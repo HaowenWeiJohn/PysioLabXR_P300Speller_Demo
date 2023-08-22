@@ -82,12 +82,20 @@ public class StateController : MonoBehaviour
         // check the key press and do state shfit
         if (Input.GetKeyDown(Presets.NextStateKey))
         {
-            exitState();
+            if (stateShiftValidCheck())
+            {
+                exitState();
+            }
         }
         if (Input.GetKeyDown(Presets.InterruptKey))
         {
             currentState = Presets.State.InterruptState;
         }
+    }
+
+    public virtual bool stateShiftValidCheck()
+    {
+        return true;
     }
 
 }

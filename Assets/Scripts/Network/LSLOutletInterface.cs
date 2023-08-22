@@ -23,13 +23,11 @@ public class LSLOutletInterface : MonoBehaviour
     public void initLSLStreamOutlet(string streamName, string streamType, int channelNum, float nominalSamplingRate, LSL.channel_format_t channelFormat)
     {
         StreamInfo streamInfo = new StreamInfo(
-
             streamName,
             streamType,
             channelNum,
             nominalSamplingRate,
             channelFormat
-
             );
 
         streamOutlet = new StreamOutlet(streamInfo);

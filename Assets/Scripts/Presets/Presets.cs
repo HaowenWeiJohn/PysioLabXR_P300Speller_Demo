@@ -12,6 +12,11 @@ public static class Presets
     public static int EventMarkerChannelNum = 6; // block marker index 0
     public static float EventMarkerNominalSamplingRate = 1;
 
+    public static Color CharOffColor = new Color(0.5f, 0.5f, 0.5f, 1);
+    public static Color CharOnColor = new Color(1, 1, 1, 1);
+
+    public static Color CharTrainHintColor = new Color(1, 0, 1, 1);
+
 
     // 0: State Enter Exit Marker 1: Flashing Block Enter Exit Marker 2: Flashing Row Index, 3. Flashing Column Index 4. The flashing Row/Column Contains Target Char
     public enum EventMarkerChannelInfo
@@ -55,9 +60,9 @@ public static class Presets
         InterruptState = 3
     }
 
-    public static KeyCode NextStateKey = KeyCode.N;
-    public static KeyCode InterruptKey = KeyCode.I;
-    public static KeyCode FullScreenKey = KeyCode.F;
+    public static KeyCode NextStateKey = KeyCode.Space;
+    public static KeyCode InterruptKey = KeyCode.Escape;
+    //public static KeyCode FullScreenKey = KeyCode.;
 
     public enum Character
     {
@@ -99,7 +104,47 @@ public static class Presets
         Nine = 35
     }
 
+    public static char[] P300TargetChars = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 
+    public static Dictionary<int, char> P300SpellerDictonary = new Dictionary<int, char>()
+{
+    {0, 'A'},
+    {1, 'B'},
+    {2, 'C'},
+    {3, 'D'},
+    {4, 'E'},
+    {5, 'F'},
+    {6, 'G'},
+    {7, 'H'},
+    {8, 'I'},
+    {9, 'J'},
+    {10, 'K'},
+    {11, 'L'},
+    {12, 'M'},
+    {13, 'N'},
+    {14, 'O'},
+    {15, 'P'},
+    {16, 'Q'},
+    {17, 'R'},
+    {18, 'S'},
+    {19, 'T'},
+    {20, 'U'},
+    {21, 'V'},
+    {22, 'W'},
+    {23, 'X'},
+    {24, 'Y'},
+    {25, 'Z'},
+    {26, '0'},
+    {27, '1'},
+    {28, '2'},
+    {29, '3'},
+    {30, '4'},
+    {31, '5'},
+    {32, '6'},
+    {33, '7'},
+    {34, '8'},
+    {35, '9'}
+};
 
 
 }
