@@ -9,9 +9,13 @@ public class TestStateController : StateController
     [Header("Board Controller")]
     public BoardController boardController;
 
+    public IEnumerator TestStateBoardCoroutine;
+
     void Start()
     {
-        
+        TestStateBoardCoroutine = boardController.TestStateBoardCoroutine();
+        StartCoroutine(TestStateBoardCoroutine);
+
     }
 
     // Update is called once per frame

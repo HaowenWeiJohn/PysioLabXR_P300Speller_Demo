@@ -40,6 +40,28 @@ public class EventMarkerLSLOutletController : LSLOutletInterface
         streamOutlet.push_sample(eventMarkerArray);
     }
 
-    
+    public void sendFlashBlockStartMarker()
+    {
+        float[] eventMarkerArray = createEventMarkerArrayFloat();
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.FlashBlockStartEndMarker] = 1;
+        streamOutlet.push_sample(eventMarkerArray);
+    }
+
+    public void sendFlashBlockEndMarker()
+    {
+        float[] eventMarkerArray = createEventMarkerArrayFloat();
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.FlashBlockStartEndMarker] = -1;
+        streamOutlet.push_sample(eventMarkerArray);
+    }
+
+    public void sendFlashMarker(float flashingMarker, float flashingItemIndexMarker, float targetFlashingMarker)
+    {
+        float[] eventMarkerArray = createEventMarkerArrayFloat();
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.FlashingMarker] = flashingMarker;
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.FlashingItemIndexMarker] = flashingItemIndexMarker;
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.FlashingItemIndexMarker] = targetFlashingMarker;
+    }
+
+
 
 }

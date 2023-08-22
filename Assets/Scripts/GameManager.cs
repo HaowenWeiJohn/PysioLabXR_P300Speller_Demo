@@ -49,6 +49,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
+
         if (currentState.getCurrentState() == Presets.State.EndingState)
         {
             currentState.setCurrentState(Presets.State.IdleState);
@@ -66,6 +69,8 @@ public class GameManager : MonoBehaviour
             }
 
         }
+        
+
     }
 
 

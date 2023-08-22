@@ -134,7 +134,6 @@ public class TrainIntroductionStateController : StateController
         {
             return false;
         }
-
     }
 
 

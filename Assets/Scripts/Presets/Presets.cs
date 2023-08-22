@@ -15,21 +15,26 @@ public static class Presets
     public static Color CharOffColor = new Color(0.5f, 0.5f, 0.5f, 1);
     public static Color CharOnColor = new Color(1, 1, 1, 1);
 
-    public static Color CharTrainHintColor = new Color(1, 0, 1, 1);
+    public static Color CharTrainHintColor = new Color(0, 1, 0, 1);
 
     // flash settings
     public static float BoardEnableWaitTime = 2.0f;
-    public static float TrainTargetCharHintDuration = 2.0f;
+    public static float HintDuration = 2.0f;
+    public static float WaitDurationBeforeStartFlashing = 2.0f;
+    public static float FlashCharEndRestDuration = 5.0f;
 
-    // 0: State Enter Exit Marker 1: Flashing Block Enter Exit Marker 2: Flashing Row Index, 3. Flashing Column Index 4. The flashing Row/Column Contains Target Char
-    public enum EventMarkerChannelInfo
+    //public static List<int> flashElementIndexList = new List<int> {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
+    public static int[] flashElementIndexList = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
+
+
+// 0: State Enter Exit Marker 1: Flashing Block Enter Exit Marker 2: Flashing Row Index, 3. Flashing Column Index 4. The flashing Row/Column Contains Target Char
+public enum EventMarkerChannelInfo
     {
         StateEnterExitMarker = 0,
         FlashBlockStartEndMarker = 1,
         FlashingMarker = 2,
-        ColIndexMarker = 3,
-        RowIndexMarker = 4,
-        FlashingTarget = 5
+        FlashingItemIndexMarker = 3, // the 0-5 is row, 7-11 is column
+        FlashingTargetMarker = 4
     }
 
     public enum ExperimentState
@@ -190,8 +195,25 @@ public static class Presets
     {'9', 35}
 };
 
+    public static int[] Shuffle(int[] array)
+    {
+        
+        int[] newArray = (int[])array.Clone();
+        int n = newArray.Length;
+        System.Random rng = new System.Random();
 
+        // Fisher-Yates shuffle algorithm
+        for (int i = n - 1; i > 0; i--)
+        {
+            int j = rng.Next(i + 1);
+            int temp = newArray[i];
+            newArray[i] = newArray[j];
+            newArray[j] = temp;
+        }
 
+        return newArray;
+
+    }
 
 
 }

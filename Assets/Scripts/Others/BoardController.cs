@@ -75,6 +75,14 @@ public class BoardController : MonoBehaviour
     }
 
 
+    void setAllCharsToCharOnColor()
+    {
+        foreach (CharactorController charactorController in allChars)
+        {
+            charactorController.setOnColor();
+        }
+    }
+
 
     void allCharsGetSpriteRenderer()
     {
@@ -126,6 +134,10 @@ public class BoardController : MonoBehaviour
 
         for (int i = 0; i < trainCharsArray.Length; i++)
         {
+            // send flash block start marker
+
+            //gameManager.eventMarkerLSLOutletController.sendStateOnEnterMarker
+
 
             char targetChar = trainCharsArray[i];
             int targetCharIndex = Presets.P300SpellerCharInexDictionary[targetChar];
@@ -133,18 +145,83 @@ public class BoardController : MonoBehaviour
             Debug.Log("Target Char: " +targetChar);
             Debug.Log("Target Char Index: " + targetCharIndex);
             targetCharController.setTrainHintColor();
-    // turn the hint on for n seconds
+            yield return new WaitForSeconds(Presets.HintDuration);
+            targetCharController.setOffColor();
+            yield return new WaitForSeconds(Presets.WaitDurationBeforeStartFlashing);
+
+            setAllCharsToCharOffColor(); // make sure all char is off
 
 
+            // flash char n times
+            for (int j=0; j<gameManager.repeatTimes; j++)
+            {
+                // create random list
+                int[] shuffledFlashSequence = Presets.Shuffle(Presets.flashElementIndexList);
+                Debug.Log(shuffledFlashSequence);
+                // flash each elements sequentially
+                foreach(int flashItemIndex in shuffledFlashSequence)
+                {
+                    // turn on
+                    setCharsToCharOnCholor(flashItems[flashItemIndex]);
+                    // send event marker
+
+                    // on wiat
+                    yield return new WaitForSeconds(gameManager.flashDuration);
+                    // turn off
+                    setCharsToCharOffCholor(flashItems[flashItemIndex]);
+                    // off wait
+                    yield return new WaitForSeconds(gameManager.flashInterval);
+
+                }
+            }
+
+            yield return new WaitForSeconds(Presets.FlashCharEndRestDuration);
+        }
+    }
 
 
-}
+    public IEnumerator TestStateBoardCoroutine()
+    {
+        Debug.Log("Start Test Actions");
 
+        yield return new WaitForSeconds(Presets.HintDuration);
+        setAllCharsToCharOnColor();
+        yield return new WaitForSeconds(Presets.WaitDurationBeforeStartFlashing);
+        setAllCharsToCharOffColor();
+
+        while (true)
+        {
+            // flash round start
+            yield return new WaitForSeconds(Presets.HintDuration);
+
+            for (int j = 0; j < gameManager.repeatTimes; j++)
+            {
+                // create random list
+                int[] shuffledFlashSequence = Presets.Shuffle(Presets.flashElementIndexList);
+                Debug.Log(shuffledFlashSequence);
+                // flash each elements sequentially
+                foreach (int flashItemIndex in shuffledFlashSequence)
+                {
+                    // turn on
+                    setCharsToCharOnCholor(flashItems[flashItemIndex]);
+                    // send event marker
+
+                    // on wiat
+                    yield return new WaitForSeconds(gameManager.flashDuration);
+                    // turn off
+                    setCharsToCharOffCholor(flashItems[flashItemIndex]);
+                    // off wait
+                    yield return new WaitForSeconds(gameManager.flashInterval);
+
+                }
+            }
+
+        }
 
 
     }
 
-    
 
-    
+
+
 }
