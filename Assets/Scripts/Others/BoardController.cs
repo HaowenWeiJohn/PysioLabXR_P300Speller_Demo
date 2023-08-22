@@ -135,6 +135,9 @@ public class BoardController : MonoBehaviour
         for (int i = 0; i < trainCharsArray.Length; i++)
         {
             // send flash block start marker
+            gameManager.eventMarkerLSLOutletController.sendFlashBlockStartMarker();
+
+
 
             //gameManager.eventMarkerLSLOutletController.sendStateOnEnterMarker
 
@@ -175,7 +178,10 @@ public class BoardController : MonoBehaviour
                 }
             }
 
+            yield return new WaitForSeconds(3.0f);
+            gameManager.eventMarkerLSLOutletController.sendFlashBlockEndMarker();
             yield return new WaitForSeconds(Presets.FlashCharEndRestDuration);
+        
         }
     }
 
