@@ -90,6 +90,7 @@ public class StateController : MonoBehaviour
         if (Input.GetKeyDown(Presets.InterruptKey))
         {
             currentState = Presets.State.InterruptState;
+            exitState();
         }
     }
 

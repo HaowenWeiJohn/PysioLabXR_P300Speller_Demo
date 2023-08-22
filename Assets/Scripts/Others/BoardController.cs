@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Presets;
 using UnityEngine;
 
 public class BoardController : MonoBehaviour
@@ -36,7 +37,6 @@ public class BoardController : MonoBehaviour
     public CharactorController[] allChars = new CharactorController[36];
 
     public List<CharactorController[]> flashItems = new List<CharactorController[]>();
-
 
 
     void Start()
@@ -164,10 +164,20 @@ public class BoardController : MonoBehaviour
                 // flash each elements sequentially
                 foreach(int flashItemIndex in shuffledFlashSequence)
                 {
-                    // turn on
-                    setCharsToCharOnCholor(flashItems[flashItemIndex]);
-                    // send event marker
+                    // set if target flashing marker
+                    float targetFlashingMarker = 0;
+                    foreach (CharactorController charactorControllers in flashItems[flashItemIndex]) {
+                        if (charactorControllers == targetCharController) // if the target controler is in the array
+                        {
+                            targetFlashingMarker = 1;
+                        }
+                    }
 
+                    // set all event markers off
+                    gameManager.eventMarkerLSLOutletController.sendFlashMarker(1.0f, (float)flashItemIndex, targetFlashingMarker);
+                    
+                    // turn on all event markers
+                    setCharsToCharOnCholor(flashItems[flashItemIndex]);
                     // on wiat
                     yield return new WaitForSeconds(gameManager.flashDuration);
                     // turn off
@@ -178,11 +188,15 @@ public class BoardController : MonoBehaviour
                 }
             }
 
-            yield return new WaitForSeconds(3.0f);
+            yield return new WaitForSeconds(Presets.FlashCharEndRestDuration);
             gameManager.eventMarkerLSLOutletController.sendFlashBlockEndMarker();
             yield return new WaitForSeconds(Presets.FlashCharEndRestDuration);
-        
         }
+
+        gameManager.trainStateController.exitState(); // exit train state
+
+
+
     }
 
 
@@ -190,15 +204,21 @@ public class BoardController : MonoBehaviour
     {
         Debug.Log("Start Test Actions");
 
-        yield return new WaitForSeconds(Presets.HintDuration);
-        setAllCharsToCharOnColor();
-        yield return new WaitForSeconds(Presets.WaitDurationBeforeStartFlashing);
-        setAllCharsToCharOffColor();
+        //yield return new WaitForSeconds(Presets.HintDuration);
+        //setAllCharsToCharOnColor();
+        //yield return new WaitForSeconds(Presets.WaitDurationBeforeStartFlashing);
+        //setAllCharsToCharOffColor();
 
         while (true)
         {
-            // flash round start
+            // flash block start
+            gameManager.eventMarkerLSLOutletController.sendFlashBlockStartMarker();
+            // hint flash will start soon
+
+            setAllCharsToCharOnColor();
             yield return new WaitForSeconds(Presets.HintDuration);
+            setAllCharsToCharOffColor();
+            yield return new WaitForSeconds(Presets.WaitDurationBeforeStartFlashing);
 
             for (int j = 0; j < gameManager.repeatTimes; j++)
             {
@@ -209,6 +229,8 @@ public class BoardController : MonoBehaviour
                 foreach (int flashItemIndex in shuffledFlashSequence)
                 {
                     // turn on
+
+                    gameManager.eventMarkerLSLOutletController.sendFlashMarker(1.0f, (float)flashItemIndex, 0);
                     setCharsToCharOnCholor(flashItems[flashItemIndex]);
                     // send event marker
 
@@ -221,6 +243,10 @@ public class BoardController : MonoBehaviour
 
                 }
             }
+
+            yield return new WaitForSeconds(Presets.FlashCharEndRestDuration);
+            gameManager.eventMarkerLSLOutletController.sendFlashBlockEndMarker();
+            yield return new WaitForSeconds(Presets.FlashCharEndRestDuration);
 
         }
 

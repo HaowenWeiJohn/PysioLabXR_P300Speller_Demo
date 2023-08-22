@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-
+        eventMarkerLSLOutletController.initEventMarkerLSLOutlet();
         experimentStates = Presets.ExperimentProcedure;
         stateSelector(experimentStates[experimentStateIndex]);
         currentState.enterState();
@@ -68,6 +68,15 @@ public class GameManager : MonoBehaviour
                 
             }
 
+        }
+        else if(currentState.getCurrentState() == Presets.State.InterruptState)
+        {
+            currentState.setCurrentState(Presets.State.IdleState);
+            
+        }
+        else
+        {
+            // do nothing
         }
         
 

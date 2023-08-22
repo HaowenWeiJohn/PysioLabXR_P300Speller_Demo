@@ -7,6 +7,23 @@ public class EventMarkerLSLOutletController : LSLOutletInterface
     // Start is called before the first frame update
     void Start()
     {
+        //initLSLStreamOutlet(
+        //                    Presets.EventMarkerLSLOutletStreamName,
+        //                    Presets.EventMarkerLSLOutletStreamType,
+        //                    Presets.EventMarkerChannelNum,
+        //                    Presets.EventMarkerNominalSamplingRate,
+        //                    LSL.channel_format_t.cf_float32
+        //);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void initEventMarkerLSLOutlet()
+    {
         initLSLStreamOutlet(
                             Presets.EventMarkerLSLOutletStreamName,
                             Presets.EventMarkerLSLOutletStreamType,
@@ -14,12 +31,6 @@ public class EventMarkerLSLOutletController : LSLOutletInterface
                             Presets.EventMarkerNominalSamplingRate,
                             LSL.channel_format_t.cf_float32
         );
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void sendStateOnEnterMarker(Presets.ExperimentState currentExperimentState)
@@ -37,6 +48,13 @@ public class EventMarkerLSLOutletController : LSLOutletInterface
     {
         float[] eventMarkerArray = createEventMarkerArrayFloat();
         eventMarkerArray[(int)Presets.EventMarkerChannelInfo.StateEnterExitMarker] = (float)currentExperimentState * -1; // revert the value to indicate exit
+        streamOutlet.push_sample(eventMarkerArray);
+    }
+
+    public void sendStateOnInterruptMarker()
+    {
+        float[] eventMarkerArray = createEventMarkerArrayFloat();
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.StateEnterExitMarker] = Presets.ExperimentState.InterruptState; // revert the value to indicate exit
         streamOutlet.push_sample(eventMarkerArray);
     }
 
