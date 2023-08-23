@@ -6,7 +6,7 @@ public static class Presets
 {
 
 
-    public static string EventMarkerLSLOutletStreamName = "PhysioLabXR_P300SpellerDemo_EventMarker";
+    public static string EventMarkerLSLOutletStreamName = "PhysioLabXRP300SpellerDemoEventMarker";
     public static string EventMarkerLSLOutletStreamType = "EventMarker";
     public static string EventMarkerLSLOutletStreamID = "1";
     public static int EventMarkerChannelNum = 6; // block marker index 0

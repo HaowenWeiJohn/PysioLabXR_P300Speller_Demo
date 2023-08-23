@@ -77,7 +77,8 @@ public class EventMarkerLSLOutletController : LSLOutletInterface
         float[] eventMarkerArray = createEventMarkerArrayFloat();
         eventMarkerArray[(int)Presets.EventMarkerChannelInfo.FlashingMarker] = flashingMarker;
         eventMarkerArray[(int)Presets.EventMarkerChannelInfo.FlashingItemIndexMarker] = flashingItemIndexMarker;
-        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.FlashingItemIndexMarker] = targetFlashingMarker;
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.FlashingTargetMarker] = targetFlashingMarker;
+        streamOutlet.push_sample(eventMarkerArray);
     }
 
 
