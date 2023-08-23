@@ -52,9 +52,9 @@ public class GameManager : MonoBehaviour
 
         
 
-        if (currentState.getCurrentState() == Presets.State.EndingState)
+        if (currentState.getCurrentState() == Presets.State.Ending)
         {
-            currentState.setCurrentState(Presets.State.IdleState);
+            currentState.setCurrentState(Presets.State.Idle);
             experimentStateIndex += 1;
             Debug.Log(experimentStateIndex);
 
@@ -69,10 +69,15 @@ public class GameManager : MonoBehaviour
             }
 
         }
-        else if(currentState.getCurrentState() == Presets.State.InterruptState)
+        else if(currentState.getCurrentState() == Presets.State.Interrupt)
         {
-            currentState.setCurrentState(Presets.State.IdleState);
-            
+            currentState.setCurrentState(Presets.State.Idle);
+
+            // reset experiment states
+            experimentStateIndex = 0;
+            experimentStates = Presets.ExperimentProcedure;
+            stateSelector(experimentStates[experimentStateIndex]);
+            currentState.enterState();
         }
         else
         {

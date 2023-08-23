@@ -10,7 +10,7 @@ public class StateController : MonoBehaviour
     // Start is called before the first frame update
     public GameManager gameManager;
     public Presets.ExperimentState experimentState;
-    Presets.State currentState = Presets.State.IdleState;
+    Presets.State currentState = Presets.State.Idle;
 
     public GameObject StateGraphicInterface;
     public EventMarkerLSLOutletController eventMarkerLSLOutletController;
@@ -28,7 +28,7 @@ public class StateController : MonoBehaviour
     public virtual void enterState()
     {
         EnableSelf();
-        setCurrentState(Presets.State.RunningState);
+        setCurrentState(Presets.State.Running);
 
         eventMarkerLSLOutletController.sendStateOnEnterMarker(experimentState);
 
@@ -37,11 +37,18 @@ public class StateController : MonoBehaviour
     public virtual void exitState()
     {
         DisableSelf();
-        setCurrentState(Presets.State.EndingState);
+        setCurrentState(Presets.State.Ending);
 
         eventMarkerLSLOutletController.sendStateOnExitMarker(experimentState);
     }
 
+    public virtual void interruptState()
+    {
+        DisableSelf();
+        setCurrentState(Presets.State.Interrupt);
+
+        eventMarkerLSLOutletController.sendStateOnInterruptMarker();
+    }
 
 
     //public virtual void OnEnable()
@@ -89,8 +96,7 @@ public class StateController : MonoBehaviour
         }
         if (Input.GetKeyDown(Presets.InterruptKey))
         {
-            currentState = Presets.State.InterruptState;
-            exitState();
+            interruptState();
         }
     }
 

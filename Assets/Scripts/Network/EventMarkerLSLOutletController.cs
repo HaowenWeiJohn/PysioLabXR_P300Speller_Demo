@@ -54,7 +54,7 @@ public class EventMarkerLSLOutletController : LSLOutletInterface
     public void sendStateOnInterruptMarker()
     {
         float[] eventMarkerArray = createEventMarkerArrayFloat();
-        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.StateEnterExitMarker] = Presets.ExperimentState.InterruptState; // revert the value to indicate exit
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.StateInterruptMarker] = 1; // revert the value to indicate exit
         streamOutlet.push_sample(eventMarkerArray);
     }
 

@@ -34,7 +34,8 @@ public enum EventMarkerChannelInfo
         FlashBlockStartEndMarker = 1,
         FlashingMarker = 2,
         FlashingItemIndexMarker = 3, // the 0-5 is row, 7-11 is column
-        FlashingTargetMarker = 4
+        FlashingTargetMarker = 4,
+        StateInterruptMarker = 5,
     }
 
     public enum ExperimentState
@@ -45,9 +46,6 @@ public enum EventMarkerChannelInfo
         TestIntroductionState = 4,
         TestState = 5,
         EndState = 6,
-
-
-        InterruptState = 7 // this will reset the game to the GameState.StartState
     }
 
 
@@ -62,10 +60,10 @@ public enum EventMarkerChannelInfo
 
     public enum State
     {
-        IdleState = 0,
-        RunningState = 1,
-        EndingState = 2,
-        InterruptState = 3
+        Idle = 1,
+        Running = 2,
+        Ending = 3,
+        Interrupt = 4
     }
 
     public static KeyCode NextStateKey = KeyCode.Space;

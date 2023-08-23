@@ -836,6 +836,7 @@ Transform:
   m_Children:
   - {fileID: 47404813}
   - {fileID: 1995415062}
+  - {fileID: 613392106}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1472,7 +1473,6 @@ RectTransform:
   - {fileID: 1243517952}
   - {fileID: 1919491195}
   - {fileID: 1118993113}
-  - {fileID: 613392106}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2556,18 +2556,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613392105}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.013020833, y: 0.013020833, z: 0.013020833}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 467848427}
-  m_Father: {fileID: 442003699}
-  m_RootOrder: 5
+  m_Father: {fileID: 333057374}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 500, y: -300}
+  m_AnchoredPosition: {x: 6.5104065, y: -3.90625}
   m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &613392107
@@ -3331,7 +3331,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Key Instrucitons: Next [N], FullScreen [F], Interrupt [I]'
+  m_text: 'Key Instrucitons: Next [Spc], Interrupt [Esc]'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5917,7 +5917,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Key Instrucitons: Next [N], FullScreen [F], Interrupt [I]'
+  m_text: 'Key Instrucitons: Next [Spc], Interrupt [Esc]'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
