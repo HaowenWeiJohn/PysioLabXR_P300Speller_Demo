@@ -174,7 +174,7 @@ public class BoardController : MonoBehaviour
                     }
 
                     // set all event markers off
-                    gameManager.eventMarkerLSLOutletController.sendFlashMarker(1.0f, (float)flashItemIndex, targetFlashingMarker);
+                    gameManager.eventMarkerLSLOutletController.sendFlashMarker(1.0f, (float)flashItemIndex, (float)targetFlashingMarker);
                     
                     // turn on all event markers
                     setCharsToCharOnCholor(flashItems[flashItemIndex]);
@@ -230,7 +230,7 @@ public class BoardController : MonoBehaviour
                 {
                     // turn on
 
-                    gameManager.eventMarkerLSLOutletController.sendFlashMarker(1.0f, (float)flashItemIndex, 0);
+                    gameManager.eventMarkerLSLOutletController.sendFlashMarker(1.0f, (float)flashItemIndex, 0.0f);
                     setCharsToCharOnCholor(flashItems[flashItemIndex]);
                     // send event marker
 

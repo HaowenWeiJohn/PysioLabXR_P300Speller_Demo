@@ -90,10 +90,18 @@ public class TrainIntroductionStateController : StateController
         string inputString = repeatTimesInputFeildController.getInput();
         int outputValue = 0;
         bool valid =  int.TryParse(inputString, out outputValue);
+
         if (valid)
         {
-            gameManager.repeatTimes = outputValue;
-            return true;
+            if (outputValue > 5)
+            {
+                gameManager.repeatTimes = outputValue;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         else
         {

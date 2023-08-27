@@ -26,5 +26,12 @@ public class TrainStateController : StateController
     }
 
 
+    public override void interruptState()
+    {
+        base.interruptState();
+        StopCoroutine(TrainStateBoardCoroutine);
+    }
+
+
 
 }

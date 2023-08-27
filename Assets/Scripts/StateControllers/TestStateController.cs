@@ -24,6 +24,12 @@ public class TestStateController : StateController
         base.Update();
     }
 
+    public override void interruptState()
+    {
+        base.interruptState();
+        StopCoroutine(TestStateBoardCoroutine);
+    }
+
 
 
 }

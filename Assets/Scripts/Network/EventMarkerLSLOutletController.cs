@@ -47,28 +47,28 @@ public class EventMarkerLSLOutletController : LSLOutletInterface
     public void sendStateOnExitMarker(Presets.ExperimentState currentExperimentState)
     {
         float[] eventMarkerArray = createEventMarkerArrayFloat();
-        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.StateEnterExitMarker] = (float)currentExperimentState * -1; // revert the value to indicate exit
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.StateEnterExitMarker] = (float)currentExperimentState * -1.0f; // revert the value to indicate exit
         streamOutlet.push_sample(eventMarkerArray);
     }
 
     public void sendStateOnInterruptMarker()
     {
         float[] eventMarkerArray = createEventMarkerArrayFloat();
-        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.StateInterruptMarker] = 1; // revert the value to indicate exit
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.StateInterruptMarker] = 1.0f; // revert the value to indicate exit
         streamOutlet.push_sample(eventMarkerArray);
     }
 
     public void sendFlashBlockStartMarker()
     {
         float[] eventMarkerArray = createEventMarkerArrayFloat();
-        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.FlashBlockStartEndMarker] = 1;
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.FlashBlockStartEndMarker] = 1.0f;
         streamOutlet.push_sample(eventMarkerArray);
     }
 
     public void sendFlashBlockEndMarker()
     {
         float[] eventMarkerArray = createEventMarkerArrayFloat();
-        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.FlashBlockStartEndMarker] = -1;
+        eventMarkerArray[(int)Presets.EventMarkerChannelInfo.FlashBlockStartEndMarker] = -1.0f;
         streamOutlet.push_sample(eventMarkerArray);
     }
 
