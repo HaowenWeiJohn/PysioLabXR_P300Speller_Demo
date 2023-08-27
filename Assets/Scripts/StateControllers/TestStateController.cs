@@ -13,8 +13,8 @@ public class TestStateController : StateController
 
     void Start()
     {
-        TestStateBoardCoroutine = boardController.TestStateBoardCoroutine();
-        StartCoroutine(TestStateBoardCoroutine);
+        //TestStateBoardCoroutine = boardController.TestStateBoardCoroutine();
+        //StartCoroutine(TestStateBoardCoroutine);
 
     }
 
@@ -22,6 +22,13 @@ public class TestStateController : StateController
     void Update()
     {
         base.Update();
+    }
+
+    public override void enterState()
+    {
+        base.enterState();
+        TestStateBoardCoroutine = boardController.TrainStateBoardCoroutine();
+        StartCoroutine(TestStateBoardCoroutine);
     }
 
     public override void interruptState()

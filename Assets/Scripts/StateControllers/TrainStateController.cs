@@ -14,8 +14,8 @@ public class TrainStateController : StateController
 
     void Start()
     {
-        TrainStateBoardCoroutine = boardController.TrainStateBoardCoroutine();
-        StartCoroutine(TrainStateBoardCoroutine);
+        //TrainStateBoardCoroutine = boardController.TrainStateBoardCoroutine();
+        //StartCoroutine(TrainStateBoardCoroutine);
 
     }
 
@@ -25,6 +25,12 @@ public class TrainStateController : StateController
         base.Update();
     }
 
+    public override void enterState()
+    {
+        base.enterState();
+        TrainStateBoardCoroutine = boardController.TrainStateBoardCoroutine();
+        StartCoroutine(TrainStateBoardCoroutine);
+    }
 
     public override void interruptState()
     {
