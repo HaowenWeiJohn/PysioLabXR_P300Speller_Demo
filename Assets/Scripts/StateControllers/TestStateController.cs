@@ -28,6 +28,7 @@ public class TestStateController : StateController
     {
         base.interruptState();
         StopCoroutine(TestStateBoardCoroutine);
+        Debug.Log("TestStateBoardCoroutine Stopped");
     }
 
 

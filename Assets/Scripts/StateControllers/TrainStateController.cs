@@ -30,6 +30,7 @@ public class TrainStateController : StateController
     {
         base.interruptState();
         StopCoroutine(TrainStateBoardCoroutine);
+        Debug.Log("TrainStateBoardCoroutine Stopped");
     }
 
 
