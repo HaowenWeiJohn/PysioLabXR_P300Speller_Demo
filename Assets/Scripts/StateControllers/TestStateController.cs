@@ -27,7 +27,7 @@ public class TestStateController : StateController
     public override void enterState()
     {
         base.enterState();
-        TestStateBoardCoroutine = boardController.TrainStateBoardCoroutine();
+        TestStateBoardCoroutine = boardController.TestStateBoardCoroutine();
         StartCoroutine(TestStateBoardCoroutine);
     }
 
