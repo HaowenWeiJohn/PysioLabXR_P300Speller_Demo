@@ -12,6 +12,9 @@ public static class Presets
     public static int EventMarkerChannelNum = 6; // block marker index 0
     public static float EventMarkerNominalSamplingRate = 1;
 
+    public static string PredictionProbabilityLSLInletStreamName = "PhysioLabXRP300SpellerDemoPredictionProbability";
+
+
     public static Color CharOffColor = new Color(0.5f, 0.5f, 0.5f, 1);
     public static Color CharOnColor = new Color(1, 1, 1, 1);
 
