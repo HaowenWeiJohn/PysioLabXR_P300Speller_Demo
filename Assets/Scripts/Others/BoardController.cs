@@ -203,7 +203,7 @@ public class BoardController : MonoBehaviour
     public IEnumerator TestStateBoardCoroutine()
     {
         Debug.Log("Start Test Actions");
-
+        yield return new WaitForSeconds(Presets.BoardEnableWaitTime);
         //yield return new WaitForSeconds(Presets.HintDuration);
         //setAllCharsToCharOnColor();
         //yield return new WaitForSeconds(Presets.WaitDurationBeforeStartFlashing);
@@ -212,6 +212,7 @@ public class BoardController : MonoBehaviour
         while (true)
         {
             // flash block start
+            yield return new WaitForSeconds(Presets.WaitDurationBeforeStartFlashing);
             gameManager.eventMarkerLSLOutletController.sendFlashBlockStartMarker();
             // hint flash will start soon
 

@@ -18,7 +18,7 @@ public static class Presets
     public static Color CharTrainHintColor = new Color(0, 1, 0, 1);
 
     // flash settings
-    public static float BoardEnableWaitTime = 2.0f;
+    public static float BoardEnableWaitTime = 3.0f;
     public static float HintDuration = 2.0f;
     public static float WaitDurationBeforeStartFlashing = 2.0f;
     public static float FlashCharEndRestDuration = 5.0f;
