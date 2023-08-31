@@ -26,7 +26,9 @@ public class GameManager : MonoBehaviour
     public TestStateController testStateController;
     public EndStateController endStateController;
 
+    [Header("Network Controller")]
     public EventMarkerLSLOutletController eventMarkerLSLOutletController;
+    public PredictionProbabilityLSLInletController predictionProbabilityLSLInletController;
 
 
     [Header("Settings")]

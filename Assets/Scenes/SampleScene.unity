@@ -1164,7 +1164,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Welcome to the P300 Speller Game
+  m_text: Welcome to the PhysioLabXR P300 Speller Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2837,6 +2837,7 @@ MonoBehaviour:
   testStateController: {fileID: 1556552670}
   endStateController: {fileID: 274570821}
   eventMarkerLSLOutletController: {fileID: 2002947439}
+  predictionProbabilityLSLInletController: {fileID: 881165117}
   trainCharsArray: 
   repeatTimes: 0
   flashInterval: 0
@@ -5312,7 +5313,8 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  activated: 0
+  streamActivated: 0
+  streamAvailable: 0
 --- !u!114 &883302789 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2173292220035720707, guid: 1e3a68f228ea01b4987cb45471adc5f5, type: 3}
@@ -9829,6 +9831,14 @@ PrefabInstance:
     - target: {fileID: 2173292219684159689, guid: 1e3a68f228ea01b4987cb45471adc5f5, type: 3}
       propertyPath: m_SizeDelta.y
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2173292219684159689, guid: 1e3a68f228ea01b4987cb45471adc5f5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2173292219684159689, guid: 1e3a68f228ea01b4987cb45471adc5f5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2173292219684159689, guid: 1e3a68f228ea01b4987cb45471adc5f5, type: 3}
       propertyPath: m_LocalPosition.x

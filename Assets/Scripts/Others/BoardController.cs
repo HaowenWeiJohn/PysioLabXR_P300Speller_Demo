@@ -225,7 +225,7 @@ public class BoardController : MonoBehaviour
             {
                 // create random list
                 int[] shuffledFlashSequence = Presets.Shuffle(Presets.flashElementIndexList);
-                Debug.Log(shuffledFlashSequence);
+
                 // flash each elements sequentially
                 foreach (int flashItemIndex in shuffledFlashSequence)
                 {
@@ -249,13 +249,27 @@ public class BoardController : MonoBehaviour
             gameManager.eventMarkerLSLOutletController.sendFlashBlockEndMarker();
             yield return new WaitForSeconds(Presets.FlashCharEndRestDuration);
 
+            yield return new WaitForSeconds(Presets.WaitFeedbackDuration);
+
+            gameManager.predictionProbabilityLSLInletController.pullPredictionProbabilitySample();
+            if (gameManager.predictionProbabilityLSLInletController.frameTimestamp != 0) // received new response
+            {
+                int highestProbabilityCharIndex = GeneralUtils.FindLargestValueIndex(gameManager.predictionProbabilityLSLInletController.frameDataBuffer);
+                CharactorController predictedCharactor = allChars[highestProbabilityCharIndex];
+                // highlight the char for x 1 second and turn off
+                predictedCharactor.setHighlightColor();
+                yield return new WaitForSeconds(Presets.HighLightDuration);
+                predictedCharactor.setOffColor();
+            }
+            else
+            {
+                // do nothing
+                Debug.Log("Prediction not received. Skip.");
+            }
+
+
+
         }
-
-
     }
-
-
-
-
 }
 

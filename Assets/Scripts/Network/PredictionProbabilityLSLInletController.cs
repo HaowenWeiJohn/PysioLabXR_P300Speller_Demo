@@ -14,12 +14,12 @@ public class PredictionProbabilityLSLInletController : LSLInletInterface
     // Update is called once per frame
     void Update()
     {
-        pullPredictionProbabilitySample();
+        //pullPredictionProbabilitySample(); // this function has been called in the board controller for each time we wait for prediction 
     }
 
-    void pullPredictionProbabilitySample()
+    public void pullPredictionProbabilitySample()
     {
-        if (activated)
+        if (streamActivated)
         {
             pullSample();
             clearBuffer();

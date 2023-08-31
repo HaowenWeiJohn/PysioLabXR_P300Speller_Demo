@@ -19,12 +19,15 @@ public static class Presets
     public static Color CharOnColor = new Color(1, 1, 1, 1);
 
     public static Color CharTrainHintColor = new Color(0, 1, 0, 1);
+    public static Color CharHighLightColor = new Color(1, 0, 0, 1);
 
     // flash settings
     public static float BoardEnableWaitTime = 3.0f;
     public static float HintDuration = 2.0f;
     public static float WaitDurationBeforeStartFlashing = 2.0f;
-    public static float FlashCharEndRestDuration = 5.0f;
+    public static float FlashCharEndRestDuration = 4.0f;
+    public static float WaitFeedbackDuration = 4.0f;
+    public static float HighLightDuration = 2.0f;
 
     //public static List<int> flashElementIndexList = new List<int> {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
     public static int[] flashElementIndexList = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
